@@ -1,0 +1,16 @@
+UNF:
+    db(patient_no,patient_name,ward_no,ward_name,bed_number,[drug_no,drug_name,description,dosage,moa,upd,start_date,finish_date])
+1NF:
+    db(*patient_no*,patient_name,ward_no,ward_name,bed_number,*drug_no*,drug_name,description,dosage,moa,upd,*start_date*,finish_date)
+2NF:
+    patient(*patient_no*,patient_name,ward_no,ward_name,bed_number)
+    drug(*drug_no*,drug_name,description,dosage,moa)
+    doses(*patient_no*,*drug_no*,*start_date*,upd,finish_date)
+3NF:
+    ward(*ward_no*,ward_name)
+    patient(*patient_no*,patient_name,ward_no,bed_number)
+    drug(*drug_no*,drug_name,description,dosage,moa)
+    doses(*patient_no*,*drug_no*,*start_date*,upd,finish_date)
+BCNF:
+    =3NF
+
