@@ -1,0 +1,11 @@
+select guestname,guestaddress from guest where guestaddress rlike "London" order by guestname;
+select * from room where price < 40 and (type="double" or type="family") order by price;
+select * from booking where dateto is null;
+select avg(price) from room;
+select sum(price) from room where type="double";
+select count(distinct(guestno)) from booking where (datefrom<="2022-08-01" and dateto>="2022-08-01") or (datefrom>="2022-08-01" and datefrom<="2022-08-31");
+select type,price from hotel join room on room.hotelno = hotel.hotelno where hotelname="The Tower Hotel";
+select guestname from hotel join booking on booking.hotelno = hotel.hotelno join guest on guest.guestno = booking.guestno where (curdate() between datefrom and dateto) and hotelname="The Tower Hotel";
+SELECT * FROM booking join guest on guest.guestno = booking.guestno join hotel on hotel.hotelno = booking.hotelno join room on booking.roomno = room.roomno where hotelname="The Tower Hotel" and (curdate() between datefrom and dateto);
+SELECT sum(price) FROM booking join guest on guest.guestno = booking.guestno join hotel on hotel.hotelno = booking.hotelno join room on booking.roomno = room.roomno where hotelname="The Tower Hotel" and (curdate() between datefrom and dateto);
+
