@@ -1,0 +1,4 @@
+$ mkdir exercises
+$ cd exercises
+$ git clone git@github.com:thibaultjonckheere/exercises2.git
+
