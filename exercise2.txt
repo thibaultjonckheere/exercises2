@@ -1,0 +1,13 @@
+UNF:
+    db(staffNo,dentistName,patientNo,patientName,(date,time),surgeryNo)
+1NF:
+    db(*staffNo*,dentistName,patientNo,patientName,*appointmentDate*,*appointmentTime*,surgeryNo)
+2NF:
+    staff(*staffNo*,dentistName)
+    db(*staffNo*,patientNo,patientName,*appointmentDate*,*appointmentTime*,surgeryNo)
+3NF:
+    staff(*staffNo*,dentistName)
+    patient(*patientNo*,patientName)
+    db(*staffNo*,patientNo,*appointmentDate*,*appointmentTime*,surgeryNo)
+BCNF:
+    =3NF
